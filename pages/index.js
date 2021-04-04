@@ -23,6 +23,8 @@ function HomePage(props) {
 
 export async function getStaticProps() {
 
+  console.log('(Re-)Generating...')
+
   const filePath = path.join(process.cwd(), 'data', 'dummy-backend.json');
   // This builds an absolute path to the file: 'dummy-backend...'
 
@@ -38,12 +40,13 @@ export async function getStaticProps() {
   const data = JSON.parse(jsonData)
   // JSON.parse - reads the data and converts it into a regular js object
 
-  console.log(data.products)
+  // console.log(data.products)
 
   return { 
     props: {
       products: data.products
     },
+    revalidate: 10
   }
 }
 // with this function, always need to return an object with a props key
