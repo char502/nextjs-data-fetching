@@ -2,6 +2,7 @@ import path from 'path';
 // path is another node.js module; help for building paths
 import fs from 'fs/promises';
 // this imports the file system module from Node.js
+import Link from 'next/link';
 
 function HomePage(props) {
 
@@ -14,7 +15,9 @@ function HomePage(props) {
       <p>this is a test</p>
       {products.map(product => (
         <li key={product.id}>
-          {product.title}
+          <Link href={`/${product.id}`}>
+            {product.title}
+          </Link>
         </li>
       ))}
     </ul>
