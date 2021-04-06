@@ -8,6 +8,12 @@ function ProductDetailPage(props) {
 
 const { loadedProduct } = props;
 
+  // if (!loadedProduct) {
+  //   return (
+  //     <p>Loading...</p>
+  //   )
+  // }
+
   return (
     <Fragment>
       <h1>{loadedProduct.title}</h1>
@@ -45,7 +51,7 @@ export async function getStaticPaths() {
     paths: [
       { params: { pid: "p1"} }
     ],
-    fallback: true
+    fallback: 'blocking'
   };
 }
 
