@@ -62,6 +62,7 @@ export async function getStaticProps(context) {
   };
 }
 
+// for dynamic paths that need to be pre-generated
 export async function getStaticPaths() {
 
   const data = await getData();
